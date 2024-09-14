@@ -10,14 +10,17 @@ function checkUrl() {
 }
 
 function isCanvasAssignmentCreationPage() {
+    console.error("Hi" + window.location.href.toLowerCase());
 
-    return window.location.href.includes('canvas') && (window.location.href.includes('/assignments/new') || (window.location.href.includes('/assignments/edit')));
+    console.log("SDOHSALIHDOHAPSOUDHOPAHNDOPAHNDOPHNAOPSDHNAOPHNDOPAHSDPOAHSDO");
+
+    return (window.location.href.includes('/assignments/new') || (window.location.href.includes('/assignments/edit')));
 
 
 }
 
 function isCanvasAssignmentViewPage() {
-    return window.location.href.includes('canvas') && window.location.href.includes('/assignments/');
+    return window.location.href.includes('/assignments/');
 
 }
 
@@ -47,6 +50,9 @@ function main() {
     if (isCanvasAssignmentCreationPage) {
         const targetElement = document.querySelector('.admin-links');
 
+
+
+        console.error(targetElement)
 
         if (targetElement) {
 
