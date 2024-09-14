@@ -2,9 +2,9 @@
 
 // Create a new div element with your content
 const newDiv = document.createElement('div');
-newDiv.id = 'studai-canvas-button';
+newDiv.id = 'studai-canvas-button-2';
 newDiv.innerHTML = `
-  <p>Estimate Time</p>
+  <div>Estimate Time</div>
 `;
 
 // Find the target element by class name
@@ -16,3 +16,4 @@ if (targetElement) {
 } else {
   console.error('Target element not found.');
 }
+
