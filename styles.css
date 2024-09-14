@@ -1,0 +1,12 @@
+/* styles.css */
+
+#my-extension-div {
+    position: fixed;
+    top: 0;
+    right: 0;
+    background: #fff;
+    border: 1px solid #ddd;
+    padding: 10px;
+    z-index: 1000;
+  }
+  
