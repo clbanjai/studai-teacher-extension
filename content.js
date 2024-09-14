@@ -2,10 +2,9 @@
 
 // Create a new div element with your content
 const newDiv = document.createElement('div');
-newDiv.id = 'my-extension-div';
+newDiv.id = 'studai-canvas-button';
 newDiv.innerHTML = `
-  <h1>Hello from My Extension</h1>
-  <p>This is some injected HTML content.</p>
+  <p>Estimate Time</p>
 `;
 
 // Find the target element by class name
