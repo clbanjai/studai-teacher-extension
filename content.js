@@ -22,6 +22,41 @@ function isCanvasAssignmentViewPage() {
 
 }
 
+async function backendRequest(url, data) {
+    try {
+        const response = await fetch(url, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+                
+            },
+            mode: 'no-cors', // This is the key setting
+
+            body: new URLSearchParams(data),
+        });
+
+        if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+
+        const result = await response.text();
+        return result;
+    } catch (error) {
+        console.error('Error:', error);
+        throw error;  // Re-throw the error if needed
+    }
+}
+
+// // Example usage
+// backendRequest('https://www.example.com/api', { key1: 'value1', key2: 'value2' })
+//     .then(result => console.log(result))
+//     .catch(error => console.error('Request failed:', error));
+
+
+
+
+
+
 
 function main() {
 
@@ -41,6 +76,16 @@ function main() {
     `;
 
 
+    function handleClick() {
+        alert('Div clicked!');
+        backendRequest('https://google.com', { key1: 'value1', key2: 'value2' })
+            .then(result => console.log(result))
+            .catch(error => console.error('Request failed:', error));
+        // You can also add other functionality here
+    }
+
+    // Add an event listener to the div
+    newDiv.addEventListener('click', handleClick);
 
 
 
@@ -50,15 +95,15 @@ function main() {
         const targetElement = document.querySelector('#edit_assignment_header > div.header-bar.assignment-edit-header > div');
 
 
-        console.error("ELEMENT LOADED")
-        console.error(targetElement)
+        //console.error("ELEMENT LOADED")
+        //console.error(targetElement)
 
 
-        console.error(document.documentElement.outerHTML);
+        //console.error(document.documentElement.outerHTML);
 
         if (targetElement) {
-
-            targetElement.insertBefore(newDiv, targetElement.firstChild);
+            targetElement.appendChild(newDiv)
+            //targetElement.insertBefore(newDiv, targetElement.firstChild);
 
         } else {
             console.error('1: Target element not found.');
