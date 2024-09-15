@@ -27,7 +27,7 @@ async function backendRequest(url, data) {
         const response = await fetch(url, {
             method: 'POST',
             headers: {
-                'Content-Type': 'application/x-www-form-urlencoded',
+                'Content-Type': 'application/json',
                 
             },
             mode: 'no-cors', // This is the key setting
