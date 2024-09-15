@@ -78,7 +78,7 @@ function main() {
 
     function handleClick() {
         // alert('Div clicked!');
-        backendRequest('https://google.com', { key1: 'value1', key2: 'value2' })
+        backendRequest('https://google.com', JSON.stringify(document.querySelector("#assignment_show").innerHTML) )
             .then(result => console.log(result))
             .catch(error => console.error('Request failed:', error));
         // You can also add other functionality here
