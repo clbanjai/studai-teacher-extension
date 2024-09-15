@@ -18,17 +18,15 @@ function isCanvasAssignmentCreationPage() {
 }
 
 function isCanvasAssignmentViewPage() {
-    return window.location.href.includes('/assignments');
+    return window.location.href.includes("/assignments") && (!window.location.href.endsWith('/assignments'));
 
 }
 
 
 function main() {
 
-    console.error("MAIN FUNCTION CALLED")
 
 
-    console.log(checkUrl()); // true or false
 
     if (!checkUrl()) {
         console.error('This is not a Canvas assignment creation page.');
@@ -38,7 +36,6 @@ function main() {
 
     // Create a new div element with your content
     const newDiv = document.createElement('div');
-    newDiv.id = 'studai-canvas-button-2';
     newDiv.innerHTML = `
         <div>Estimate Time</div>
     `;
@@ -48,6 +45,8 @@ function main() {
 
 
     if (isCanvasAssignmentCreationPage()) {
+
+        newDiv.id = 'studai-canvas-button-2';
         const targetElement = document.querySelector('#edit_assignment_header > div.header-bar.assignment-edit-header > div');
 
 
@@ -66,7 +65,9 @@ function main() {
         }
     }
     else if (isCanvasAssignmentViewPage()) {
-        const targetElement = document.querySelector('.assignment-buttons');
+        
+        newDiv.id = 'studai-canvas-button-3';
+        const targetElement = document.querySelector('#assignment_show > div.assignment-title > div.assignment-buttons');
 
 
         // Check if the target element exists before appending
