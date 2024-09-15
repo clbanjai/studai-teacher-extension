@@ -1,28 +1,31 @@
 
 function checkUrl() {
-    const currentUrl = window.location.href; // Get the current URL
 
-    // Check if the URL contains "canvas" and ends with "/new" or "/edit"
-    const hasCanvas = currentUrl.includes('canvas');
-    //const endsCorrectly = currentUrl.endsWith('/new') || currentUrl.endsWith('/edit');
 
-    return hasCanvas;
+    return window.location.href.includes ('canvas');
 }
 
 function isCanvasAssignmentCreationPage() {
 
-    return (window.location.href.includes('/assignments/new') || (window.location.href.includes('/assignments/edit')));
+    console.log("WENT THROUGH ASSIGNMENT CREATION PAGE")
+    console.log(window.location.href.includes('/assignments'))
+    console.log(window.location.href.includes('/edit'))
+    console.log(window.location.href.includes('/new'))
+
+    return window.location.href.includes('/assignments') && (window.location.href.includes('/new') || (window.location.href.includes('/edit')));
 
 
 }
 
 function isCanvasAssignmentViewPage() {
-    return window.location.href.includes('/assignments/');
+    return window.location.href.includes('/assignments');
 
 }
 
 
 function main() {
+
+    console.error("MAIN FUNCTION CALLED")
 
 
     console.log(checkUrl()); // true or false
@@ -47,14 +50,17 @@ function main() {
     if (isCanvasAssignmentCreationPage()) {
         const targetElement = document.querySelector('#edit_assignment_header > div.header-bar.assignment-edit-header > div');
 
-        
-        console.error ("ELEMENT LOADED")
+
+        console.error("ELEMENT LOADED")
         console.error(targetElement)
+
+
+        console.error(document.documentElement.outerHTML);
 
         if (targetElement) {
 
-                targetElement.insertBefore(newDiv, targetElement.firstChild);
-            
+            targetElement.insertBefore(newDiv, targetElement.firstChild);
+
         } else {
             console.error('1: Target element not found.');
         }
@@ -82,7 +88,7 @@ function main() {
         }
     }
     else {
-        console.error('This is not a Canvas assignment page.');
+        console.error('all cases passed, no match');
         return;
     }
 
@@ -92,5 +98,8 @@ function main() {
 }
 
 
+console.log("running?")
+window.addEventListener('load', main);
 
-document.addEventListener('DOMContentLoaded', main);
+
+console.log("ran?")
