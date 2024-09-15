@@ -77,7 +77,7 @@ function main() {
 
 
     function handleClick() {
-        alert('Div clicked!');
+        // alert('Div clicked!');
         backendRequest('https://google.com', { key1: 'value1', key2: 'value2' })
             .then(result => console.log(result))
             .catch(error => console.error('Request failed:', error));
@@ -95,15 +95,9 @@ function main() {
         const targetElement = document.querySelector('#edit_assignment_header > div.header-bar.assignment-edit-header > div');
 
 
-        //console.error("ELEMENT LOADED")
-        //console.error(targetElement)
-
-
-        //console.error(document.documentElement.outerHTML);
-
         if (targetElement) {
-            targetElement.appendChild(newDiv)
-            //targetElement.insertBefore(newDiv, targetElement.firstChild);
+            //targetElement.appendChild(newDiv)
+            targetElement.insertBefore(newDiv, targetElement.firstChild);
 
         } else {
             console.error('1: Target element not found.');
