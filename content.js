@@ -10,9 +10,6 @@ function checkUrl() {
 }
 
 function isCanvasAssignmentCreationPage() {
-    console.error("Hi" + window.location.href.toLowerCase());
-
-    console.log("SDOHSALIHDOHAPSOUDHOPAHNDOPAHNDOPHNAOPSDHNAOPHNDOPAHSDPOAHSDO");
 
     return (window.location.href.includes('/assignments/new') || (window.location.href.includes('/assignments/edit')));
 
@@ -47,11 +44,11 @@ function main() {
 
 
 
-    if (isCanvasAssignmentCreationPage) {
-        const targetElement = document.querySelector('.admin-links');
+    if (isCanvasAssignmentCreationPage()) {
+        const targetElement = document.querySelector('#edit_assignment_header > div.header-bar.assignment-edit-header > div');
 
-
-
+        
+        console.error ("ELEMENT LOADED")
         console.error(targetElement)
 
         if (targetElement) {
@@ -62,7 +59,7 @@ function main() {
             console.error('1: Target element not found.');
         }
     }
-    else if (isCanvasAssignmentViewPage) {
+    else if (isCanvasAssignmentViewPage()) {
         const targetElement = document.querySelector('.assignment-buttons');
 
 
@@ -94,4 +91,6 @@ function main() {
 
 }
 
-main();
+
+
+document.addEventListener('DOMContentLoaded', main);
